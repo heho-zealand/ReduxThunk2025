@@ -12,9 +12,9 @@ function SongPlaylist() {
     dispatch(addSong(song));           //Dispatcheren vil kalde 'addSong' reduceren i Slicen 'song' med action-objektet returneret fra action creator 'addSong' som argument 
     console.log(addSong(song));        //{type: 'song/addSong', payload: 'Andreas Odberg - I morgen er der også en dag'}
   };
-  const handleSongRemove = (song) => {
-    dispatch(removeSong(song));
-    console.log(removeSong(song)); //{type: 'song/removeSong', payload: 'Andreas Odberg - I morgen er der også en dag'}
+  const handleSongRemove = (songToBeRemoved) => {
+    dispatch(removeSong(songToBeRemoved));
+    console.log(removeSong(songToBeRemoved)); //{type: 'song/removeSong', payload: 'Andreas Odberg - I morgen er der også en dag'}
   };
 
   const renderedSongs = songPlaylist.map((song) => {

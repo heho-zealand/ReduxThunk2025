@@ -14,7 +14,7 @@ export { store, reset, addSong, removeSong};
 //Keys dvs navne på staten i storen dannes ud fra reducerens navn, så hvis reduceren hedder songs, så vil staten i storen hedde songs
 
 const startingState = store.getState();
-console.log(startingState);  // {sange: Array(0)}
+console.log("starting state:", startingState);  // {sange: Array(0)}
 console.log(JSON.stringify(startingState)); // {"sange":[]}
 
 store.dispatch({ type: "song/addSong", payload: "Andreas Odberg - I morgen er der også en dag" });

@@ -27,6 +27,7 @@ export const songsReducer = songsSlice.reducer;
 
 console.log("songsSlice.actions: ");
 console.log(songsSlice.actions); //{addSong: ƒ, removeSong: ƒ} action creator functions
+console.log("songsSlice.actions.addSong: ");
 console.log(songsSlice.actions.addSong("Andreas Odberg - I morgen er der også en dag")); //{type: "song/addSong", payload: "Andreas Odberg - I morgen er der også en dag"}
 
 //Bemærk en slice definere initial state og kombinere minireducere (addSong, removeSong og reset) til en stor reducer (songsReducer) og definere en række 'action creator' funktioner

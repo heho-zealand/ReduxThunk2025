@@ -10,7 +10,7 @@ const pause = (duration) => {
 
 const albumsApi = createApi({
   reducerPath: 'albums',          //Bliver til navnet på vores state i storen
-  baseQuery: fetchBaseQuery({     //fetchBaseQuery er en funktion fra RTK Query, som vi bruger til at lave vores baseQuery 
+  baseQuery: fetchBaseQuery({     //fetchBaseQuery er en funktion fra RTK Query, som vi bruger til at lave vores baseQuery - preconfigureret fetch
     baseUrl: 'http://localhost:3005',
     fetchFn: async (...args) => {
       // REMOVE FOR PRODUCTION - DEV ONLY!!!

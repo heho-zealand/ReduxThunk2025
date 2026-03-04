@@ -1,17 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { usersReducer } from './slices/usersSlice';
+import { userApi } from './apis/usersApi';
 import { albumsApi } from './apis/albumsApi';
 import { photosApi } from './apis/photosApi';
 
 export const store = configureStore({
   reducer: {
-    users: usersReducer,
+    [userApi.reducerPath]: userApi.reducer,  //ReducerPath er navnet på vores reducer i storen
     [albumsApi.reducerPath]: albumsApi.reducer,  //ReducerPath er navnet på vores reducer i storen
     [photosApi.reducerPath]: photosApi.reducer,  //slipper for stavefejl, da vi bruger variablen reducerPath, vi kunne have skrevet albums i stedet for albumsApi.reducerPath
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware()
+      .concat(userApi.middleware)
       .concat(albumsApi.middleware)
       .concat(photosApi.middleware);
   },
@@ -19,9 +20,11 @@ export const store = configureStore({
 
 setupListeners(store.dispatch);
 
-export * from './thunks/fetchUsers';
-export * from './thunks/addUser';
-export * from './thunks/removeUser';
+export {
+  useFetchUsersQuery,
+  useAddUserMutation,
+  useRemoveUserMutation,
+} from './apis/usersApi';
 export {
   useFetchAlbumsQuery,
   useAddAlbumMutation,
