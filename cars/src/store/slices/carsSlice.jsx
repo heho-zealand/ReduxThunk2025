@@ -14,7 +14,7 @@ const carsSlice = createSlice({
             state.data.push({
                 name: action.payload.name,
                 cost: action.payload.cost,
-                id : nanoid()
+                id : nanoid() //generates a unique id for each car added
             });
         },
         //Assumption: action.payload === id of the car to be removed
